@@ -1,9 +1,19 @@
 pipeline{
-    agent any
+    agent {
+        docker{
+            image 'cypress/browsers:latest'
+        }
+    }
     stages{
-        stage("test stage"){
+        stage("install dependencies"){
             steps{
-                echo "bonjour"
+                sh 'npm ci'
+            }
+        }
+
+        stage("run tests"){
+            steps{
+                sh 'npx cypress run'
             }
         }
     }
