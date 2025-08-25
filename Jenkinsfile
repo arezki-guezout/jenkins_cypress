@@ -18,4 +18,9 @@ pipeline{
             }
         }
     }
+    post{
+        always {
+            archiveArtifacts artifacts: 'cypress/reports/html/*.html', followSymlinks: false
+        }
+    }
 }
