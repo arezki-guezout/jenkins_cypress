@@ -20,7 +20,7 @@ pipeline{
     }
     post{
         always {
-            archiveArtifacts artifacts: 'cypress/reports/**/*.html', followSymlinks: false
+            archiveArtifacts artifacts: 'cypress/reports/**/*.*', followSymlinks: false
         }
     }
 }
